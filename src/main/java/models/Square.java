@@ -12,12 +12,9 @@ public class Square {
 	
 	
 	
-	
 	public List<Line> getLines() {
 		return lines;
 	}
-
-
 
 
 	@Override

@@ -1,10 +1,8 @@
 package main;
 
-import java.io.EOFException;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import models.Line;
@@ -19,26 +17,58 @@ public class App {
 
 		// open the file,
 
-		readFile(FILE_MERCURY);
+		leesFile(FILE_MERCURY);
 
 		// check that all rows indeed sum to the same constant.
 
 	}
-
-	private static void readFile(File file) {
-
-		int numberOfItems = countTokens(file);
+	
+	private static void leesFile(String fileName) {
 		
 		Square square = new Square();
+		
+		try (Scanner leesRegel = new Scanner(new FileReader(fileName))){
+			while (leesRegel.hasNextLine()) {
+				Line line = new Line();
+				System.out.println(leesRegel.nextInt());
+				line.getLine().add(leesRegel.nextInt());
+				
+				square.getLines().add(line);
+			}
+		
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found!");
+		} catch (NoSuchElementException e) {
+			System.out.println("End of file has been reached");
+		}
+		
+		System.out.println(square.toString());
+		
+	}
+	
 
-		try (Scanner readLine = new Scanner(new FileReader(file))) {
+	private static void readFile(String fileName) {
+
+		int numberOfItems = countTokens(fileName);
+		System.out.println(numberOfItems);
+
+		Square square = new Square();
+
+//		try {
+//			Files.lines(Paths.get(fileName)).forEach(System.out::println);
+//		} catch (IOException e) {
+//			
+//		}
+
+		try (Scanner readLine = new Scanner(new FileReader(fileName))) {
 			while (readLine.hasNextLine()) {
 
 				Line line = new Line();
 				
 				for (int i = 0; i < numberOfItems; i++) {
-				readLine.nextInt();
-				
+					int temp = readLine.nextInt();
+					line.getLine().add(temp);
+
 				}
 
 				// put line in square
@@ -47,25 +77,30 @@ public class App {
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		} 
-		
+		}
+
 		System.out.println(square.toString());
 	}
 	
-	private static int countTokens(File file) {
+		
+
+	private static int countTokens(String fileName) {
 		int count = 0;
-		try (Scanner readFile = new Scanner(file)) {
-	
-			while (readFile.hasNext()) {
+		try (Scanner readFile = new Scanner(new FileReader(fileName))) {
+
+			int line = readFile.nextInt();
+
+			while (line != -1) {
 				count++;
-				readFile.next();
+				line = readFile.nextInt();
 			}
-			
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+		} catch (NoSuchElementException e) {
+			System.out.println("Reached end of line");
 		}
 		return count;
 	}
-
 
 }

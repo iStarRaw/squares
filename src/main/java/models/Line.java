@@ -13,6 +13,11 @@ public class Line {
 	}
 
 	
+	public List<Integer> getLine() {
+		return line;
+	}
+	
+
 	public int sumLine() {
 		for (Integer number: line) {
 			sum += number;
