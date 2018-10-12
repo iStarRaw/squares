@@ -20,8 +20,14 @@ public class Square {
 
 	@Override
 	public String toString() {
+		StringBuilder square = new StringBuilder();
 		
-		return this.lines.stream().map(e -> e.toString()).collect(Collectors.joining());
+		for (Line line: lines) {
+			square.append(line.toString());
+			square.append(String.format("\n"));
+		}
+		
+		return square.toString();
 		
 	}
 

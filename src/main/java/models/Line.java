@@ -28,10 +28,13 @@ public class Line {
 	@Override
 	public String toString() {
 		StringBuilder lineString = new StringBuilder();
-		for (Integer number: line) {
+		
+		for (Integer number: this.line) {
 			lineString.append(number + " ");
 		}
-		lineString.append(String.format("\n"));
+		
+//		lineString.append(String.format("\n"));
+		
 		return lineString.toString();
 	}
 	

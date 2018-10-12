@@ -37,10 +37,10 @@ public class App {
 				for (int i = 0; i < numberOfItems; i++) {
 
 					int temp = leesRegel.nextInt();
-					line.getLine().add(temp);
-					System.out.println(line.toString());
-					square.getLines().add(line);
+					line.getLine().add(temp);	
+					
 				}
+				square.getLines().add(line);
 			}
 
 		} catch (FileNotFoundException e) {
@@ -49,7 +49,7 @@ public class App {
 			System.out.println("End of file has been reached");
 		}
 
-//		System.out.println(square.toString());
+		System.out.println(square.toString());
 
 	}
 
