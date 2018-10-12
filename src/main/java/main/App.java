@@ -17,7 +17,7 @@ public class App {
 
 		// open the file,
 
-		leesFile(FILE_MERCURY);
+		readFile(FILE_MERCURY);
 //		leesFile(FILE_LUNA);
 
 		// check that all rows indeed sum to the same constant.
@@ -26,20 +26,19 @@ public class App {
 
 	}
 
-	private static void leesFile(String fileName) {
+	private static void readFile(String fileName) {
 
 		int numberOfItems = countLines(fileName);
-
 		Square square = new Square();
 
-		try (Scanner leesRegel = new Scanner(new FileReader(fileName))) {
+		try (Scanner readLine = new Scanner(new FileReader(fileName))) {
 
-			while (leesRegel.hasNextLine()) {
+			while (readLine.hasNextLine()) {
 				Line line = new Line();
 
 				for (int i = 0; i < numberOfItems; i++) {
 
-					int temp = leesRegel.nextInt();
+					int temp = readLine.nextInt();
 					line.getLine().add(temp);	
 					
 				}
