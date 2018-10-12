@@ -2,7 +2,6 @@ package models;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Square {
 	private List<Line> lines;
@@ -15,6 +14,13 @@ public class Square {
 	
 	public List<Line> getLines() {
 		return lines;
+	}
+	
+	public boolean eachLineEqualSum() {
+		for (int i = 0, j = i + 1; i < lines.size(); i++, j++) {
+			
+		}
+		return false;
 	}
 
 

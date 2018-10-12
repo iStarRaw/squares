@@ -18,8 +18,11 @@ public class App {
 		// open the file,
 
 		leesFile(FILE_MERCURY);
+//		leesFile(FILE_LUNA);
 
 		// check that all rows indeed sum to the same constant.
+		
+		
 
 	}
 
@@ -44,9 +47,9 @@ public class App {
 			}
 
 		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
+			System.out.println("File not found!\n");
 		} catch (NoSuchElementException e) {
-			System.out.println("End of file has been reached");
+			System.out.println("End of file has been reached\n");
 		}
 
 		System.out.println(square.toString());
@@ -68,7 +71,7 @@ public class App {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (NoSuchElementException e) {
-			System.out.println("Reached end of line");
+			System.out.println("Reached end of line\n");
 		}
 		return count;
 	}
