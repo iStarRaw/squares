@@ -15,21 +15,34 @@ public class App {
 		final String FILE_LUNA = "/Users/ilsadejager/git/squares/Luna.txt";
 		final String FILE_MERCURY = "/Users/ilsadejager/git/squares/Mercury.txt";
 
-		// open the file,
+		Square squareMercury = new Square();
+		Square squareLuna = new Square();
 
-		readFile(FILE_MERCURY);
-//		leesFile(FILE_LUNA);
+		// open the file
+		readFile(FILE_MERCURY, squareMercury);
 
 		// check that all rows indeed sum to the same constant.
+		boolean equalSumMercury = squareMercury.eachLineEqualSum();
+		System.out.println(equalSumMercury);
+
+		// open the file
+		readFile(FILE_LUNA, squareLuna);
+
+		// check that all rows indeed sum to the same constant.
+		boolean equalSumLuna = squareLuna.eachLineEqualSum();
+		System.out.println(equalSumLuna);
+		
+		
 		
 		
 
 	}
 
-	private static void readFile(String fileName) {
+	
+	
+	private static void readFile(String fileName, Square square) {
 
 		int numberOfItems = countLines(fileName);
-		Square square = new Square();
 
 		try (Scanner readLine = new Scanner(new FileReader(fileName))) {
 
@@ -37,10 +50,8 @@ public class App {
 				Line line = new Line();
 
 				for (int i = 0; i < numberOfItems; i++) {
-
 					int temp = readLine.nextInt();
-					line.getLine().add(temp);	
-					
+					line.getLine().add(temp);
 				}
 				square.getLines().add(line);
 			}

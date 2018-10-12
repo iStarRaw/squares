@@ -18,6 +18,11 @@ public class Line {
 	}
 	
 
+	public int getSum() {
+		return sum;
+	}
+
+
 	public int sumLine() {
 		for (Integer number: line) {
 			sum += number;
@@ -29,12 +34,10 @@ public class Line {
 	public String toString() {
 		StringBuilder lineString = new StringBuilder();
 		
-		for (Integer number: this.line) {
+		for (Integer number: line) {
 			lineString.append(number + " ");
 		}
-		
-//		lineString.append(String.format("\n"));
-		
+				
 		return lineString.toString();
 	}
 	
