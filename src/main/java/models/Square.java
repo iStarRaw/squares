@@ -2,6 +2,7 @@ package models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Square {
 	private List<Line> lines;
@@ -19,8 +20,8 @@ public class Square {
 
 	@Override
 	public String toString() {
-		//hier komt stream met collections
-		return null;
+		
+		return this.lines.stream().map(e -> e.toString()).collect(Collectors.joining());
 		
 	}
 

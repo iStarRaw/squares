@@ -25,12 +25,14 @@ public class Line {
 		return sum;
 	}
 	
+	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
+		StringBuilder lineString = new StringBuilder();
 		for (Integer number: line) {
-			sb.append(number + " ");
+			lineString.append(number + " ");
 		}
-		return null;
+		lineString.append(String.format("\n"));
+		return lineString.toString();
 	}
 	
 }

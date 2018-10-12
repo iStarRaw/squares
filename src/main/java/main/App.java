@@ -22,77 +22,48 @@ public class App {
 		// check that all rows indeed sum to the same constant.
 
 	}
-	
-	private static void leesFile(String fileName) {
-		
-		Square square = new Square();
-		
-		try (Scanner leesRegel = new Scanner(new FileReader(fileName))){
-			while (leesRegel.hasNextLine()) {
-				Line line = new Line();
-				System.out.println(leesRegel.nextInt());
-				line.getLine().add(leesRegel.nextInt());
-				
-				square.getLines().add(line);
-			}
-		
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-		} catch (NoSuchElementException e) {
-			System.out.println("End of file has been reached");
-		}
-		
-		System.out.println(square.toString());
-		
-	}
-	
 
-	private static void readFile(String fileName) {
+	private static void leesFile(String fileName) {
 
 		int numberOfItems = countTokens(fileName);
 		System.out.println(numberOfItems);
 
 		Square square = new Square();
 
-//		try {
-//			Files.lines(Paths.get(fileName)).forEach(System.out::println);
-//		} catch (IOException e) {
-//			
-//		}
+		try (Scanner leesRegel = new Scanner(new FileReader(fileName))) {
 
-		try (Scanner readLine = new Scanner(new FileReader(fileName))) {
-			while (readLine.hasNextLine()) {
-
+			while (leesRegel.hasNextLine()) {
 				Line line = new Line();
-				
+
 				for (int i = 0; i < numberOfItems; i++) {
-					int temp = readLine.nextInt();
+
+					int temp = leesRegel.nextInt();
 					line.getLine().add(temp);
-
+					System.out.println(line.toString());
+					square.getLines().add(line);
 				}
-
-				// put line in square
-				square.getLines().add(line);
-
 			}
+
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("File not found!");
+		} catch (NoSuchElementException e) {
+			System.out.println("End of file has been reached");
 		}
 
-		System.out.println(square.toString());
+//		System.out.println(square.toString());
+
 	}
-	
-		
 
 	private static int countTokens(String fileName) {
 		int count = 0;
 		try (Scanner readFile = new Scanner(new FileReader(fileName))) {
 
-			int line = readFile.nextInt();
+			while (readFile.hasNextLine()) {
 
-			while (line != -1) {
-				count++;
-				line = readFile.nextInt();
+				if (readFile.nextLine() != "\n") {
+					count++;
+					readFile.nextLine();
+				}
 			}
 
 		} catch (FileNotFoundException e) {
