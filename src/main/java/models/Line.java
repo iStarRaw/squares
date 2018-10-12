@@ -22,7 +22,6 @@ public class Line {
 		return sum;
 	}
 
-
 	public int sumLine() {
 		for (Integer number: line) {
 			sum += number;

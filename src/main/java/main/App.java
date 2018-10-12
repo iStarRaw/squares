@@ -25,12 +25,12 @@ public class App {
 		boolean equalSumMercury = squareMercury.eachLineEqualSum();
 		System.out.println(equalSumMercury);
 
-		// open the file
-		readFile(FILE_LUNA, squareLuna);
-
-		// check that all rows indeed sum to the same constant.
-		boolean equalSumLuna = squareLuna.eachLineEqualSum();
-		System.out.println(equalSumLuna);
+//		// open the file
+//		readFile(FILE_LUNA, squareLuna);
+//
+//		// check that all rows indeed sum to the same constant.
+//		boolean equalSumLuna = squareLuna.eachLineEqualSum();
+//		System.out.println(equalSumLuna);
 		
 		
 		
