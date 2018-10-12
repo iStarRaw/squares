@@ -25,8 +25,7 @@ public class App {
 
 	private static void leesFile(String fileName) {
 
-		int numberOfItems = countTokens(fileName);
-		System.out.println(numberOfItems);
+		int numberOfItems = countLines(fileName);
 
 		Square square = new Square();
 
@@ -54,7 +53,7 @@ public class App {
 
 	}
 
-	private static int countTokens(String fileName) {
+	private static int countLines(String fileName) {
 		int count = 0;
 		try (Scanner readFile = new Scanner(new FileReader(fileName))) {
 
