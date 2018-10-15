@@ -39,6 +39,7 @@ public class Square {
 		return true;
 	}
 
+	//TODO gebruik maken van multi-dimensional array
 	public boolean eachColumnEqualSum() {
 		Map<Integer, List<Integer>> columns = new HashMap<>(lines.size());
 

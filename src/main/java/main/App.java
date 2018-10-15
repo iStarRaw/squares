@@ -16,23 +16,16 @@ public class App {
 //		final String FILE_LUNA = "/Users/ilsadejager/git/squares/Luna.txt";
 //		final String FILE_MERCURY = "/Users/ilsadejager/git/squares/Mercury.txt";
 		
-		//Windows
-//		final String FILE_LUNA = "D:\\Repos\\squares\\Luna.txt";
-//		final String FILE_MERCURY = "D:\\Repos\\squares\\Mercury.txt";
 		
-		//TODO bij mac, resources folder nog toevoegen bij onderste source
+		//TODO bij mac, resources folder nog toevoegen in onderste source folder
 		final URL FILE_LUNA = App.class.getClassLoader().getResource("Luna.txt");
 		final URL FILE_MERCURY = App.class.getClassLoader().getResource("Mercury.txt");
 		
 		Square squareMercury = new Square();
 		Square squareLuna = new Square();
 		
-		int numberOfItemsMercury = countLines(FILE_LUNA);
-		int numberOfItemsLuna = countLines(FILE_MERCURY);
-
 		
 		
-		// open the file
 		readFile(FILE_MERCURY, squareMercury);
 
 		// check that all rows sum to the same constant.
@@ -48,7 +41,8 @@ public class App {
 		System.out.println(equalDiaMercury);
 		
 		
-		// open the file
+		
+		
 		readFile(FILE_LUNA, squareLuna);
 
 		boolean equalSumLuna = squareLuna.eachLineEqualSum();
@@ -62,6 +56,7 @@ public class App {
 
 	}
 
+	
 	
 	private static void readFile(URL fileName, Square square) {
 		int numberOfItems = countLines(fileName);
