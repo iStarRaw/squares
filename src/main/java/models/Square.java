@@ -100,21 +100,13 @@ public class Square {
 	public boolean eachDiagonalEqualSum() {
 		int sum1 = 0;
 		int sum2 = 0;
-		// uitrekenen som van:
-		// 1e lijn eerste index
-		// 2e lijn tweede index
-		// ....
-		// tot laatste lijn laatste index
+		// som van 1e lijn eerste index tot laatste lijn laatste index
 		for (int i = 0; i < lines.size(); i++) {
 			sum1 += lines.get(i).getLine().get(i);
 			System.out.println(sum1);
 		}
 
-		// uitrekenen som van:
-		// laatste lijn 1e index
-		// voorlaatste lijn 2e index
-		// ...
-		// tot 1e lijn laatste index
+		// som van: laatste lijn 1e index tot 1e lijn laatste index
 		for (int i = lines.size() - 1; i >= 0; i--) {
 			sum2 += lines.get(i).getLine().get(i);
 			System.out.println(sum2);
