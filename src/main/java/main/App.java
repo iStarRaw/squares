@@ -2,6 +2,7 @@ package main;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.net.URL;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -18,6 +19,8 @@ public class App {
 		//Windows
 		final String FILE_LUNA = "D:\\Repos\\squares\\Luna.txt";
 		final String FILE_MERCURY = "D:\\Repos\\squares\\Mercury.txt";
+		
+		URL url = App.class.getClassLoader().getResource("Luna.txt");
 		
 		Square squareMercury = new Square();
 		Square squareLuna = new Square();
