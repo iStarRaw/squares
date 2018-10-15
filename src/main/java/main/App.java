@@ -17,10 +17,12 @@ public class App {
 //		final String FILE_MERCURY = "/Users/ilsadejager/git/squares/Mercury.txt";
 		
 		//Windows
-		final String FILE_LUNA = "D:\\Repos\\squares\\Luna.txt";
-		final String FILE_MERCURY = "D:\\Repos\\squares\\Mercury.txt";
+//		final String FILE_LUNA = "D:\\Repos\\squares\\Luna.txt";
+//		final String FILE_MERCURY = "D:\\Repos\\squares\\Mercury.txt";
 		
-		URL url = App.class.getClassLoader().getResource("Luna.txt");
+		//TODO bij mac, resources folder nog toevoegen bij onderste source
+		final URL FILE_LUNA = App.class.getClassLoader().getResource("Luna.txt");
+		final URL FILE_MERCURY = App.class.getClassLoader().getResource("Mercury.txt");
 		
 		Square squareMercury = new Square();
 		Square squareLuna = new Square();
@@ -61,9 +63,9 @@ public class App {
 	}
 
 	
-	private static void readFile(String fileName, Square square) {
+	private static void readFile(URL fileName, Square square) {
 		int numberOfItems = countLines(fileName);
-		try (Scanner readLine = new Scanner(new FileReader(fileName))) {
+		try (Scanner readLine = new Scanner(new FileReader(fileName.getFile()))) {
 
 			while (readLine.hasNextLine()) {
 				Line line = new Line();
@@ -86,9 +88,9 @@ public class App {
 	}
 
 	
-	private static int countLines(String fileName) {
+	private static int countLines(URL fileName) {
 		int count = 0;
-		try (Scanner readFile = new Scanner(new FileReader(fileName))) {
+		try (Scanner readFile = new Scanner(new FileReader(fileName.getFile()))) {
 
 			while (readFile.hasNextLine()) {
 
