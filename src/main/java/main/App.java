@@ -11,9 +11,14 @@ import models.Square;
 public class App {
 
 	public static void main(String[] args) {
-
-		final String FILE_LUNA = "/Users/ilsadejager/git/squares/Luna.txt";
-		final String FILE_MERCURY = "/Users/ilsadejager/git/squares/Mercury.txt";
+		//MAC
+//		final String FILE_LUNA = "/Users/ilsadejager/git/squares/Luna.txt";
+//		final String FILE_MERCURY = "/Users/ilsadejager/git/squares/Mercury.txt";
+		
+		//Windows
+		final String FILE_LUNA = "D:\\Repos\\squares\\Luna.txt";
+		final String FILE_MERCURY = "D:\\Repos\\squares\\Mercury.txt";
+		
 
 		Square squareMercury = new Square();
 		Square squareLuna = new Square();
@@ -21,16 +26,21 @@ public class App {
 		// open the file
 		readFile(FILE_MERCURY, squareMercury);
 
-		// check that all rows indeed sum to the same constant.
-		boolean equalSumMercury = squareMercury.eachLineEqualSum();
-		System.out.println(equalSumMercury);
+		// check that all horizontal rows sum to the same constant.
+		boolean equalHorMercury = squareMercury.eachLineEqualSum();
+		System.out.println(equalHorMercury);
+		
+		//check that all vertical rows sum to the same constant.
+		
+		boolean equalVerMercury = squareMercury.eachColumnEqualSum();
+		System.out.println(equalVerMercury);
 
-//		// open the file
-//		readFile(FILE_LUNA, squareLuna);
-//
-//		// check that all rows indeed sum to the same constant.
-//		boolean equalSumLuna = squareLuna.eachLineEqualSum();
-//		System.out.println(equalSumLuna);
+		// open the file
+		readFile(FILE_LUNA, squareLuna);
+
+		// check that all rows indeed sum to the same constant.
+		boolean equalSumLuna = squareLuna.eachLineEqualSum();
+		System.out.println(equalSumLuna);
 		
 		
 		
