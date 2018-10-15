@@ -19,6 +19,7 @@ public class Square {
 
 	public Square() {
 		lines = new ArrayList<>();
+
 	}
 
 	public List<Line> getLines() {
@@ -39,7 +40,7 @@ public class Square {
 	}
 
 	public boolean eachColumnEqualSum() {
-		Map<Integer, List<Integer>> columns = new HashMap<>();
+		Map<Integer, List<Integer>> columns = new HashMap<>(lines.size());
 
 		// columns aanmaken
 		column0 = new ArrayList<>();
@@ -64,12 +65,12 @@ public class Square {
 		// som uitrekenen van alle int met waarde 0.
 		int sum0 = column0.stream().mapToInt(Integer::intValue).sum();
 		int sum1 = column1.stream().mapToInt(Integer::intValue).sum();
-		int sum2 = column1.stream().mapToInt(Integer::intValue).sum();
-		int sum3 = column1.stream().mapToInt(Integer::intValue).sum();
-		int sum4 = column1.stream().mapToInt(Integer::intValue).sum();
-		int sum5 = column1.stream().mapToInt(Integer::intValue).sum();
-		int sum6 = column1.stream().mapToInt(Integer::intValue).sum();
-		int sum7 = column1.stream().mapToInt(Integer::intValue).sum();
+		int sum2 = column2.stream().mapToInt(Integer::intValue).sum();
+		int sum3 = column3.stream().mapToInt(Integer::intValue).sum();
+		int sum4 = column4.stream().mapToInt(Integer::intValue).sum();
+		int sum5 = column5.stream().mapToInt(Integer::intValue).sum();
+		int sum6 = column6.stream().mapToInt(Integer::intValue).sum();
+		int sum7 = column7.stream().mapToInt(Integer::intValue).sum();
 
 		// totalen en kolommen in hashmap stoppen
 		columns.put(sum0, column0);
@@ -86,18 +87,43 @@ public class Square {
 				return false;
 			}
 		}
-		
+
 		return true;
 	}
 
-	
 	private void fillColumn(List<Integer> columnName, int index) {
 		for (Line line : lines) {
 			columnName.add(line.getLine().get(index));
 		}
 	}
 
-	
+	public boolean eachDiagonalEqualSum() {
+		int sum1 = 0;
+		int sum2 = 0;
+		// uitrekenen som van:
+		// 1e lijn eerste index
+		// 2e lijn tweede index
+		// ....
+		// tot laatste lijn laatste index
+		for (int i = 0; i < lines.size(); i++) {
+			sum1 += lines.get(i).getLine().get(i);
+			System.out.println(sum1);
+		}
+
+		// uitrekenen som van:
+		// laatste lijn 1e index
+		// voorlaatste lijn 2e index
+		// ...
+		// tot 1e lijn laatste index
+		for (int i = lines.size() - 1; i >= 0; i--) {
+			sum2 += lines.get(i).getLine().get(i);
+			System.out.println(sum2);
+		}
+
+		// vergelijken 2 sommen
+		return (sum1 == sum2);
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder square = new StringBuilder();
