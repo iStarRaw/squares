@@ -43,7 +43,6 @@ public class Square {
 	public boolean eachColumnEqualSum() {
 		Map<Integer, List<Integer>> columns = new HashMap<>(lines.size());
 
-		// columns aanmaken
 		column0 = new ArrayList<>();
 		column1 = new ArrayList<>();
 		column2 = new ArrayList<>();
@@ -53,7 +52,6 @@ public class Square {
 		column6 = new ArrayList<>();
 		column7 = new ArrayList<>();
 
-		// columns vullen met alle indexen van square met corresponderende indexen.
 		fillColumn(column0, 0);
 		fillColumn(column1, 1);
 		fillColumn(column2, 2);
@@ -63,7 +61,6 @@ public class Square {
 		fillColumn(column6, 6);
 		fillColumn(column7, 7);
 
-		// som uitrekenen van alle int met waarde 0.
 		int sum0 = column0.stream().mapToInt(Integer::intValue).sum();
 		int sum1 = column1.stream().mapToInt(Integer::intValue).sum();
 		int sum2 = column2.stream().mapToInt(Integer::intValue).sum();
@@ -111,7 +108,6 @@ public class Square {
 			sum2 += lines.get(i).getLine().get(i);
 		}
 
-		// vergelijken 2 sommen
 		return (sum1 == sum2);
 	}
 
