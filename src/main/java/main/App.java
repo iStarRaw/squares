@@ -30,15 +30,15 @@ public class App {
 
 		// check that all rows sum to the same constant.
 		boolean equalHorMercury = squareMercury.eachLineEqualSum();
-		System.out.println(equalHorMercury);
+		System.out.printf("Do all rows sum to the same constant? %b\n", equalHorMercury);
 		
 		//check that all columns sum to the same constant.
 		boolean equalVerMercury = squareMercury.eachColumnEqualSum();
-		System.out.println(equalVerMercury);
+		System.out.printf("Do all columns sum to the same constant? %b\n", equalVerMercury);
 
 		//check that all diagonals sum to the same constant.
 		boolean equalDiaMercury = squareMercury.eachDiagonalEqualSum();
-		System.out.println(equalDiaMercury);
+		System.out.printf("Do all diagonals sum to the same constant? %b\n", equalDiaMercury);
 		
 		
 		
@@ -46,13 +46,13 @@ public class App {
 		readFile(FILE_LUNA, squareLuna);
 
 		boolean equalSumLuna = squareLuna.eachLineEqualSum();
-		System.out.println(equalSumLuna);
+		System.out.printf("Do all rows sum to the same constant? %b\n", equalSumLuna);
 		
 		boolean equalVerluna = squareLuna.eachColumnEqualSum();
-		System.out.println(equalVerluna);
+		System.out.printf("Do all columns sum to the same constant? %b\n", equalVerluna);
 		
 		boolean equalDiaLuna = squareLuna.eachDiagonalEqualSum();
-		System.out.println(equalDiaLuna);
+		System.out.printf("Do all diagonals sum to the same constant? %b\n", equalDiaLuna);
 
 	}
 
@@ -73,9 +73,9 @@ public class App {
 			}
 
 		} catch (FileNotFoundException e) {
-			System.out.println("File not found!\n");
+			System.out.println("\nFile not found!\n");
 		} catch (NoSuchElementException e) {
-			System.out.println("End of file has been reached\n");
+			System.out.println("\nEnd of file has been reached\n");
 		}
 
 		System.out.println(square.toString());
